@@ -1,1 +1,9 @@
-<h1>Welcome to Gloamwood Village, <%= current_user.username %>!</h1>
+
+<% if current_user %>
+  <h1>Welcome to Gloamwood Village, <%= current_user.username %>!</h1>
+
+  <%= link_to 'Log out', login_path %>
+<% else %>
+  <p>You need to log in to view this content</p>
+  <%= link_to 'Log in' %>
+<% end %>
