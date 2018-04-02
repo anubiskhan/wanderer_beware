@@ -15,7 +15,7 @@ describe 'authentication' do
 
     click_on 'Create User'
 
-    expect(page).to have_content("You've successfully created an account")
+    expect(page).to have_content("Welcome to Gloamwood Village, Kelly Schroeder")
   end
 
   scenario 'allows a user to login successfully' do
