@@ -39,17 +39,16 @@ describe 'authentication' do
   end
 
   scenario 'allows a user to logout successfully' do
-    skip
+
     user = User.create(username: 'Kelly Schroeder', email: 'krschroeder@gmail.com', password: 'one2three4five6')
     visit '/'
 
     click_on 'Sign In'
 
     fill_in 'username', with: user.username
-    fill_in 'email', with: user.email
     fill_in 'password', with: user.password
 
-    click_on 'Log in'
+    click_on 'Log In'
 
     click_on 'Log out'
 
