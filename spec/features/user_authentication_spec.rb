@@ -15,7 +15,7 @@ describe 'authentication' do
 
     click_on 'Create User'
 
-    expect(page).to have_content("Welcome to Gloamwood Village, Kelly Schroeder")
+    expect(page).to have_content('Welcome to Gloamwood Village, Kelly Schroeder')
   end
 
   scenario 'allows a user to login successfully' do
@@ -28,14 +28,13 @@ describe 'authentication' do
     expect(current_path).to eq(login_path)
 
     fill_in 'username', with: user.username
-    fill_in 'email', with: user.email
     fill_in 'password', with: user.password
 
-    click_on 'Log in'
+    click_on 'Log In'
 
     expect(current_path).to eq(user_path(user))
 
-    expect(page).to have_content("Welcome, #{user.username}")
+    expect(page).to have_content("Welcome to Gloamwood Village, #{user.username}")
     expect(page).to have_content('Log out')
   end
 
