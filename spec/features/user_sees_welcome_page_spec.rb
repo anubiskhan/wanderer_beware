@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Validations' do
+describe 'welcome page' do
   scenario 'user sees a welcome page when visiting root' do
 
     visit '/'
