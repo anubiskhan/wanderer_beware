@@ -43,9 +43,9 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
-    Profession.create!(name: 'Alchemist', offense: 1, defense: 3, health: 5)
-    Profession.create!(name: 'Blacksmith', offense: 1, defense: 3, health: 5)
-    Profession.create!(name: 'Trapper', offense: 1, defense: 3, health: 5)
+    Profession.create!(name: 'Alchemist', offense: 4, defense: 1, health: 3)
+    Profession.create!(name: 'Blacksmith', offense: 1, defense: 3, health: 4)
+    Profession.create!(name: 'Trapper', offense: 2, defense: 2, health: 4)
   end
 
   config.after(:suite) do
