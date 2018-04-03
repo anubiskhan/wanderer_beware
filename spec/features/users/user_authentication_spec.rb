@@ -26,7 +26,7 @@ describe 'authentication' do
 
   scenario 'allows a user to login successfully' do
 
-    user = User.create(username: 'Kelly Schroeder', email: 'krschroeder@gmail.com', password: 'one2three4five6')
+    user = User.create(username: 'Kelly Schroeder', email: 'krschroeder@gmail.com', password: 'one2three4five6', profession_id: Profession.find_by(name: 'Blacksmith').id)
     visit '/'
 
     click_on 'Sign In'
@@ -47,7 +47,7 @@ describe 'authentication' do
 
   scenario 'allows a user to logout successfully' do
 
-    user = User.create(username: 'Kelly Schroeder', email: 'krschroeder@gmail.com', password: 'one2three4five6')
+    user = User.create(username: 'Kelly Schroeder', email: 'krschroeder@gmail.com', password: 'one2three4five6', profession_id: Profession.find_by(name: 'Blacksmith').id)
 
     visit '/'
 
@@ -62,7 +62,7 @@ describe 'authentication' do
 
     visit user_path(user.id)
 
-    expect(page).to have_content("You need to log in to view this content")
+    expect(page).to have_content('You need to log in to view this content')
 
   end
 end
