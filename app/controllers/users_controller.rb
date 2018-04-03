@@ -19,9 +19,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find_by(params[:id])
+    user = User.find(params[:id])
     prof_id = Profession.find_by(name: params[:profession]).id
     user.update(profession_id: prof_id)
+    redirect_to user_path(current_user)
   end
 
   private

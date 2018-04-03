@@ -24,7 +24,7 @@ describe 'authentication' do
   end
 
   scenario 'allows a user to login successfully' do
-    skip
+
     user = User.create(username: 'Kelly Schroeder', email: 'krschroeder@gmail.com', password: 'one2three4five6')
     visit '/'
 
@@ -44,7 +44,7 @@ describe 'authentication' do
   end
 
   scenario 'allows a user to logout successfully' do
-    skip
+
     user = User.create(username: 'Kelly Schroeder', email: 'krschroeder@gmail.com', password: 'one2three4five6')
 
     visit '/'

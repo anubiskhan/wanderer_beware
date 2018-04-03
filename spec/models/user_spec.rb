@@ -23,12 +23,4 @@ describe User do
       expect(reg_user.role).to eq('default')
     end
   end
-
-  describe 'relationships' do
-    it 'should belong to a class' do
-      reg_user = User.create!(username: 'newbtube', email: 'ff@20.com', password: 'l2p')
-
-      expect(reg_user).to respond_to(:profession)
-    end
-  end
 end
