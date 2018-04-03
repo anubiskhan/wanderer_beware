@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'authentication' do
   scenario 'allows a user to create an account' do
-
+    User.destroy_all
     visit '/'
 
     click_on 'Create Account'
@@ -15,6 +15,12 @@ describe 'authentication' do
 
     click_on 'Create User'
 
+    expect(page).to have_content('Everyone in the village must have a profession')
+    expect(current_path).to eq(edit_user_path(User.find_by(username: 'Kelly Schroeder')))
+
+    click_on 'Blacksmith'
+
+    expect(User.all.first.profession_id).to eq(Profession.find_by(name: 'Blacksmith').id)
     expect(page).to have_content('Welcome to Gloamwood Village, Kelly Schroeder')
   end
 
@@ -35,12 +41,14 @@ describe 'authentication' do
     expect(current_path).to eq(user_path(user))
 
     expect(page).to have_content("Welcome to Gloamwood Village, #{user.username}")
+
     expect(page).to have_content('Log out')
   end
 
   scenario 'allows a user to logout successfully' do
 
     user = User.create(username: 'Kelly Schroeder', email: 'krschroeder@gmail.com', password: 'one2three4five6')
+
     visit '/'
 
     click_on 'Sign In'
