@@ -22,7 +22,7 @@ describe 'authentication' do
 
     user = User.create(username: 'Kelly Schroeder', email: 'krschroeder@gmail.com', password: 'one2three4five6')
     visit '/'
-    byebug
+
     click_on 'Sign In'
 
     expect(current_path).to eq(login_path)
