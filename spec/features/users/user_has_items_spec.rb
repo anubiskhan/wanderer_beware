@@ -2,20 +2,10 @@ require 'rails_helper'
 
 describe 'items' do
   scenario 'user sees items in show page' do
-    skip
-    user = User.create(username: 'Kelly Schroeder', email: 'krschroeder@gmail.com', password: 'one2three4five6')
-    # stub current_user here for simulated login
+    user = User.create(username: 'Kelly Schroeder', email: 'krschroeder@gmail.com', password: 'one2three4five6', profession_id: Profession.find_by(name: 'Blacksmith').id)
     item = Item.create(name: 'Sword', item_type: 'Weapon', offense: 1, defense: 0)
-    visit '/'
 
-    click_on 'Sign In'
-
-    expect(current_path).to eq(login_path)
-
-    fill_in 'username', with: user.username
-    fill_in 'password', with: user.password
-
-    click_on 'Log In'
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
     visit user_path(user)
 
