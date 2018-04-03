@@ -36,6 +36,7 @@ group :development, :test do
   gem 'active_designer'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara'
+  gem 'database_cleaner'
   gem 'launchy'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
