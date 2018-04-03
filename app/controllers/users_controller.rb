@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    if current_user && current_user.profession_id == nil
+      redirect_to edit_user_path(current_user)
+    else
+      @user = User.find(params[:id])
+    end
   end
 
   def create
@@ -15,6 +19,13 @@ class UsersController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    user = User.find(params[:id])
+    prof_id = Profession.find_by(name: params[:profession]).id
+    user.update(profession_id: prof_id)
+    redirect_to user_path(current_user)
   end
 
   private
