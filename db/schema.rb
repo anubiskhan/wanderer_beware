@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180404011855) do
+ActiveRecord::Schema.define(version: 20180404015849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "enemies", force: :cascade do |t|
+    t.string "name"
+    t.integer "health"
+    t.integer "offense"
+    t.integer "defense"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "items", force: :cascade do |t|
     t.string "name"
@@ -38,6 +47,13 @@ ActiveRecord::Schema.define(version: 20180404011855) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "story_enemies", force: :cascade do |t|
+    t.bigint "story_id"
+    t.bigint "enemy_id"
+    t.index ["enemy_id"], name: "index_story_enemies_on_enemy_id"
+    t.index ["story_id"], name: "index_story_enemies_on_story_id"
   end
 
   create_table "story_items", force: :cascade do |t|
@@ -65,6 +81,8 @@ ActiveRecord::Schema.define(version: 20180404011855) do
     t.index ["profession_id"], name: "index_users_on_profession_id"
   end
 
+  add_foreign_key "story_enemies", "enemies"
+  add_foreign_key "story_enemies", "stories"
   add_foreign_key "story_items", "items"
   add_foreign_key "story_items", "stories"
   add_foreign_key "user_items", "items"

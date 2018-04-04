@@ -4,4 +4,7 @@ class Story < ApplicationRecord
 
   has_many :story_items
   has_many :items, through: :story_items
+
+  has_many :story_enemies
+  has_many :enemies, through: :story_enemies
 end

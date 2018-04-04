@@ -10,5 +10,6 @@ describe Story do
 
   describe 'relationships' do
     it {is_expected.to have_many(:items).through(:story_items)}
+    it {is_expected.to have_many(:enemies).through(:story_enemies)}
   end
 end
