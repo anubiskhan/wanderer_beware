@@ -38,6 +38,7 @@ RSpec.configure do |config|
   end
 
   config.before(:suite) do
+    UserItem.destroy_all
     User.destroy_all
     Profession.destroy_all
   end

@@ -23,4 +23,8 @@ describe User do
       expect(reg_user.role).to eq('default')
     end
   end
+
+  describe 'relationships' do
+    it {is_expected.to have_many(:items).through(:user_items)}
+  end
 end

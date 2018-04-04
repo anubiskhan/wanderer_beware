@@ -1,6 +1,14 @@
 <% if current_user %>
   <h1>Welcome to Gloamwood Village, <%= current_user.username %>!</h1>
 
+  <h3>Your Items</h3>
+
+  <%= current_user.items.each do |item| %>
+    <%= item.name %>
+    <%= item.offense %>
+    <%= item.defense %>
+  <% end %>
+
   <%= link_to 'Log out', logout_path %>
 <% else %>
   <p>You need to log in to view this content</p>
