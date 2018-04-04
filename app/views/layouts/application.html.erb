@@ -9,6 +9,20 @@
   </head>
 
   <body>
+    <nav class="container">
+      <ul>
+        <li><%= link_to 'Home', root_path %></li>
+      </ul>
+      <ul>
+        <% if current_user %>
+          <li><%= link_to 'My House', user_path(current_user) %></li>
+          <li><%= link_to 'Log out', logout_path %></li>
+        <% else %>
+          <li><%= link_to 'Create Account', new_user_path %></li>
+          <li><%= link_to 'Sign In', login_path %></li>
+        <% end %>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>

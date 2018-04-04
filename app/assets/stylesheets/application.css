@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+   background-image: url("https://i.pinimg.com/originals/14/46/8e/14468e41e4dc9c320eea11ad06cd7c3d.jpg");
+   background-size: cover;
+   color: lightgrey;
+   /* background-color: #cccccc; */
+}
+
+body a:visited {
+  color: lightgrey;
+}
+
+.container {
+  display: flex;
+  height: 60px;
+  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/stop-motion-parchment-background_b1cljj-h__F0000.png");
+  align-items: center;
+  width: 100%;
+}
+
+.container ul {;
+  color: black;
+  flex: 1;
+}
+
+.container ul li {
+  padding: 0px 10px;
+  display: inline-block;
+}
+
+li a:visited {
+  color: black;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
