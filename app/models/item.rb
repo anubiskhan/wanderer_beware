@@ -4,4 +4,7 @@ class Item < ApplicationRecord
 
   has_many :user_items
   has_many :users, through: :user_items
+
+  has_many :story_items
+  has_many :stories, through: :story_items
 end
