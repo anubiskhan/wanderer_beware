@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index]
   end
 
-  resources :stories, only: [:index]
+  resources :stories, only: [:index, :show]
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
