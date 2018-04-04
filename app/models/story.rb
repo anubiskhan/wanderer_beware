@@ -1,4 +1,4 @@
 class Story < ApplicationRecord
-  # validates_presence_of :title, :description
-  # validates_uniqueness_of :title
+  validates_presence_of :title, :description
+  validates_uniqueness_of :title
 end
