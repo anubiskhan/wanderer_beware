@@ -7,3 +7,10 @@
   <%= item.offense %>
   <%= item.defense %>
 <% end %>
+
+<% @story.enemies.each do |enemy| %>
+  <%= enemy.name %>
+  <%= enemy.health %>
+  <%= enemy.offense %>
+  <%= enemy.defense %>
+<% end %>

@@ -19,4 +19,14 @@ describe 'story' do
 
     expect(page).to have_content(item.name)
   end
+
+  scenario 'user sees the enemies associated with a story' do
+    story = Story.create(title: 'Where?? Wolf!', description: 'Unsurprisingly I am just going to write filler here')
+    enemy = Enemy.create(name: 'Fenrir', health: 5, offense: 3, defense: 3)
+    StoryEnemy.create(story_id: story.id, enemy_id: enemy.id)
+
+    visit story_path(story)
+
+    expect(page).to have_content(enemy.name)
+  end
 end
