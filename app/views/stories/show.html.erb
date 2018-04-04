@@ -1,0 +1,9 @@
+<h1><%= @story.title %></h1>
+
+<p><%= @story.description %></p>
+
+<% @story.items.each do |item| %>
+  <%= item.name %>
+  <%= item.offense %>
+  <%= item.defense %>
+<% end %>
