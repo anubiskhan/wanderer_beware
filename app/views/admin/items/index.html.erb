@@ -1,5 +1,6 @@
 <h1>All of the Items</h1>
 
-<%= @items.each do |item| %>
-  <%= item.name %>
+<% @items.each do |item| %>
+  <%= item.name %> <%= link_to "Delete", admin_item_path(item), method: "delete", data: {confirm: "Are you sure?"} %>
+  <br>
 <% end %>

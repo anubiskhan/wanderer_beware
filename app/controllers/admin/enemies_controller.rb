@@ -16,6 +16,13 @@ class Admin::EnemiesController < Admin::BaseController
     end
   end
 
+  def destroy
+    enemy = Enemy.find(params[:id])
+    enemy.destroy
+
+    redirect_to admin_enemies_path
+  end
+
   private
 
   def enemy_params
