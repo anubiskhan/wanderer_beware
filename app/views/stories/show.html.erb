@@ -12,8 +12,8 @@
   ------------------------
 
   <p>You need to roll a <%= 6 - enemy.health + enemy.defense - current_user.user_offense %> to win (6 sided die)</p>
-  <%= render partial: "form_run_away" %>
-  <%= render partial: "form_roll_die" %>
+  <%= link_to "Run Away", user_path(current_user), data: {confirm: "If you run away you won't get the sweet, sweet loots..."} %>
+  <%= link_to "Roll Die", story_path(@story), data: {confirm: "Unfortunatly there aren't any dice in Gloamwood Forest yet. I'd recommend trying your hand at theft."} %>
   <%= render partial: "form_steal_item" %>
   <% end %><br>
 <% end %>
