@@ -7,6 +7,10 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
   end
 
+  def roll_die
+    roll_die
+  end
+
   private
 
   def story_params

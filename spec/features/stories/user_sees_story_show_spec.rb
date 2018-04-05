@@ -29,4 +29,31 @@ describe 'story' do
 
     expect(page).to have_content(enemy.name)
   end
+
+  scenario 'user sees own stats displayed' do
+    story = Story.create(title: 'Where?? Wolf!', description: 'Unsurprisingly I am just going to write filler here')
+    user = User.create(username: 'Anubis Khan', email: 'poweroverwhelming@godmode.com', password: 'blacksheepwall', profession_id: Profession.find_by(name: 'Blacksmith').id)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit story_path(story)
+
+    expect(page).to have_content(user.user_health)
+    expect(page).to have_content(user.user_offense)
+    expect(page).to have_content(user.user_defense)
+  end
+
+  scenario 'user steals item from story' do
+    story = Story.create(title: 'Where?? Wolf!', description: 'Unsurprisingly I am just going to write filler here')
+    item = Item.create(name: 'Sword', item_type: 'Weapon', offense: 1, defense: 0)
+    StoryItem.create(story_id: story.id, item_id: item.id)
+    user = User.create(username: 'Anubis Khan', email: 'poweroverwhelming@godmode.com', password: 'blacksheepwall', profession_id: Profession.find_by(name: 'Blacksmith').id)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit '/steal_item'
+
+    click_on "Steal Item"
+
+    expect(user.items.first).to eq(item)
+  end
 end

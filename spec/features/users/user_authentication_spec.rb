@@ -21,7 +21,7 @@ describe 'authentication' do
     click_on 'Blacksmith'
 
     expect(User.all.first.profession_id).to eq(Profession.find_by(name: 'Blacksmith').id)
-    expect(page).to have_content('Welcome to Gloamwood Village, Kelly Schroeder')
+    expect(page).to have_content("You're safe in your house, Kelly Schroeder")
   end
 
   scenario 'allows a user to login successfully' do
@@ -40,7 +40,7 @@ describe 'authentication' do
 
     expect(current_path).to eq(user_path(user))
 
-    expect(page).to have_content("Welcome to Gloamwood Village, #{user.username}")
+    expect(page).to have_content("You're safe in your house, #{user.username}")
 
     expect(page).to have_content('Log out')
   end

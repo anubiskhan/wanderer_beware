@@ -7,4 +7,12 @@ class Story < ApplicationRecord
 
   has_many :story_enemies
   has_many :enemies, through: :story_enemies
+
+  def roll_die
+    rand(1..6)
+  end
+
+  def run_away(user)
+    redirect_to user_path(user)
+  end
 end
