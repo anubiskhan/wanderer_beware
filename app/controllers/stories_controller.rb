@@ -11,6 +11,10 @@ class StoriesController < ApplicationController
     roll_die
   end
 
+  def run_away
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def story_params

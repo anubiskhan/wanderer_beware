@@ -18,6 +18,7 @@ body {
    background-image: url("https://i.pinimg.com/originals/14/46/8e/14468e41e4dc9c320eea11ad06cd7c3d.jpg");
    background-size: cover;
    color: lightgrey;
+   font-family: Helvetica;
    /* background-color: #cccccc; */
 }
 
