@@ -16,6 +16,13 @@ class Admin::StoriesController < Admin::BaseController
     end
   end
 
+  def destroy
+    story = Story.find(params[:id])
+    story.destroy
+
+    redirect_to admin_stories_path
+  end
+
   private
 
   def story_params

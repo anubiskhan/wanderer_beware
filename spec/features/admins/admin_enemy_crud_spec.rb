@@ -30,12 +30,11 @@ describe 'admin' do
 
     visit 'admin/enemies'
 
-    expect(page).to have_content('Bill the Thief')
+    expect(page).to have_content(enemy_thief.name)
 
     click_on "Delete"
 
-    expect(page).to_not have_content('Bill the Thief')
+    expect(page).to_not have_content(enemy_thief.name)
     expect(current_path).to eq(admin_enemies_path)
-
   end
 end

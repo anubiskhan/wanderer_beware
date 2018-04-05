@@ -20,4 +20,20 @@ describe 'admin' do
     expect(page).to have_content('sword')
     expect(current_path).to eq(admin_items_path)
   end
+
+  scenario 'deletes an item' do
+    admin = User.create!(username: 'Anubis Khan', email: 'poweroverwhelming@godmode.com', password: 'blacksheepwall', role: 1)
+    item_copper_sword = Item.create(name: 'Copper Sword', item_type: 'Weapon', offense: 1, defense: 1)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+    visit 'admin/items'
+
+    expect(page).to have_content(item_copper_sword.name)
+
+    click_on "Delete"
+
+    expect(page).to_not have_content(item_copper_sword.name)
+    expect(current_path).to eq(admin_items_path)
+  end
 end
