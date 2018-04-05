@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
   post '/logout', to: 'sessions#destroy'
+  post '/roll_die', to: 'stories#roll_die'
+  post '/steal_item', to: 'useritems#create'
 end

@@ -11,4 +11,8 @@ class Story < ApplicationRecord
   def roll_die
     rand(1..6)
   end
+
+  def run_away(user)
+    redirect_to user_path(user)
+  end
 end
