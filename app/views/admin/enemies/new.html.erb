@@ -1,0 +1,17 @@
+<h1>Create an enemy</h1>
+
+<%= form_for [:admin, @enemy] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :health %>
+  <%= f.number_field :health %>
+
+  <%= f.label :offense %>
+  <%= f.number_field :offense %>
+
+  <%= f.label :defense %>
+  <%= f.number_field :defense %>
+
+  <%= f.submit 'Create Enemy' %>
+<% end %>
