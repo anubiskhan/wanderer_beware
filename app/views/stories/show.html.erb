@@ -2,15 +2,17 @@
 
 <p><%= @story.description %></p>
 
-<% @story.items.each do |item| %>
-  <%= item.name %>
-  <%= item.offense %>
-  <%= item.defense %>
-<% end %>
-
+<h3>On this journey you might encounter:</h3>
 <% @story.enemies.each do |enemy| %>
   <%= enemy.name %>
   <%= enemy.health %>
   <%= enemy.offense %>
   <%= enemy.defense %>
+<% end %>
+
+<h4>Known to carry:</h4>
+<% @story.items.each do |item| %>
+<%= item.name %>
+<%= item.offense %>
+<%= item.defense %>
 <% end %>
