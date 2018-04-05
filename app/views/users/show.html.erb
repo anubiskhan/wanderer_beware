@@ -1,16 +1,22 @@
 <% if current_user %>
-  <h1>Welcome to Gloamwood Village, <%= current_user.username %>!</h1>
+  <h1>You're safe in your house, <%= current_user.username %>!</h1>
 
+  <h3>Your Profession</h3>
+    <%= current_user.profession.name %>
+    <br>
+    <br>
   <h3>Your Items</h3>
 
   <% current_user.items.each do |item| %>
-    <%= item.name %>
-    <%= item.offense %>
-    <%= item.defense %>
+    <u><%= item.name %></u>
+    <p>Offense: <%= item.offense %></p>
+    <p>Defense: <%= item.defense %></p>
   <% end %>
 <br>
-  <%= link_to 'Log out', logout_path %>
+  <h3>Are you ready?</h3>
+  <p>Health: <%= current_user.user_health %></p>
+  <p>Offense: <%= current_user.user_offense %></p>
+  <p>Defense: <%= <current_user class="user_defens"></current_user>e %></p>
 <% else %>
   <p>You need to log in to view this content</p>
-  <%= link_to 'Log in', login_path %>
 <% end %>
