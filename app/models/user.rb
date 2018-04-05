@@ -8,4 +8,8 @@ class User < ApplicationRecord
   has_many :items, through: :user_items
 
   enum role: [:default, :admin]
+
+  def profession
+    Profession.find(self.profession_id)
+  end
 end

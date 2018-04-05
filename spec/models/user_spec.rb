@@ -27,4 +27,22 @@ describe User do
   describe 'relationships' do
     it {is_expected.to have_many(:items).through(:user_items)}
   end
+
+  describe 'user profession' do
+    it 'a user has a profession' do
+      user = User.create(username: 'Kelly Schroeder', email: 'krschroeder@gmail.com', password: 'one2three4five6', profession_id: Profession.find_by(name: 'Blacksmith').id)
+      blacksmith = Profession.find(user.profession_id)
+
+      expect(user.profession).to eq(blacksmith)
+    end
+  end
+
+  describe 'user stats' do
+    it 'user has stats equal to total from items and profession' do
+      user = User.create(username: 'Kelly Schroeder', email: 'krschroeder@gmail.com', password: 'one2three4five6', profession_id: Profession.find_by(name: 'Blacksmith').id)
+      item = Item.create(name: 'Sword', item_type: 'Weapon', offense: 1, defense: 0)
+      UserItem.create(user_id: user.id, item_id: item.id)
+  
+    end
+  end
 end
