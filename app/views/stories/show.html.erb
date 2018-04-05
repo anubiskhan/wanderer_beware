@@ -18,3 +18,10 @@
   <p>Defense: <%= item.defense %></p>
   <br>
 <% end %>
+
+<% if current_user %>
+  <h3>How do you stack up?</h3>
+  <p>Health: <%= current_user.user_health %></p>
+  <p>Offense: <%= current_user.user_offense %></p>
+  <p>Defense: <%= current_user.user_defense %></p>
+<% end %>

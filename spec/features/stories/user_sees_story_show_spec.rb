@@ -29,4 +29,17 @@ describe 'story' do
 
     expect(page).to have_content(enemy.name)
   end
+
+  scenario 'user sees own stats displayed' do
+    story = Story.create(title: 'Where?? Wolf!', description: 'Unsurprisingly I am just going to write filler here')
+    user = User.create(username: 'Anubis Khan', email: 'poweroverwhelming@godmode.com', password: 'blacksheepwall', profession_id: Profession.find_by(name: 'Blacksmith').id)
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+    visit story_path(story)
+
+    expect(page).to have_content(user.user_health)
+    expect(page).to have_content(user.user_offense)
+    expect(page).to have_content(user.user_defense)
+  end
 end
