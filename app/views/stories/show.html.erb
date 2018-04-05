@@ -12,7 +12,7 @@
   ------------------------
 
   <p>You need to roll a <%= 6 - enemy.health + enemy.defense - current_user.user_offense %> to win (6 sided die)</p>
-  <button onclick="run_away(current_user)">Run away!</button>
+  <%= render partial: "form_run_away" %>
   <%= render partial: "form_roll_die" %>
   <%= render partial: "form_steal_item" %>
   <% end %><br>

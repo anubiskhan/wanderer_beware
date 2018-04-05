@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   post '/logout', to: 'sessions#destroy'
   post '/roll_die', to: 'stories#roll_die'
+  post '/run_away', to: 'stories#run_away'
   post '/steal_item', to: 'useritems#create'
 end
