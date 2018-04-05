@@ -1,5 +1,7 @@
 <h1>All of the Enemies</h1>
 
-<%= @enemies.each do |enemy| %>
-  <%= enemy.name %>
+<% @enemies.each do |enemy| %>
+  <%= enemy.name %> <%= link_to "Delete", admin_enemy_path(enemy), method: "delete", data: {confirm: "Are you sure?"} %>
+
+  <br>
 <% end %>

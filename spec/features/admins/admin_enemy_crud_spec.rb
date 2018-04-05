@@ -20,4 +20,22 @@ describe 'admin' do
     expect(page).to have_content('Gregory')
     expect(current_path).to eq(admin_enemies_path)
   end
+
+  scenario 'deletes an enemy' do
+    admin = User.create!(username: 'Anubis Khan', email: 'poweroverwhelming@godmode.com', password: 'blacksheepwall', role: 1)
+    enemy_thief = Enemy.create(name: 'Bill the Thief', health: 2, offense: 3, defense: 2)
+
+
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+    visit 'admin/enemies'
+
+    expect(page).to have_content('Bill the Thief')
+
+    click_on "Delete"
+
+    expect(page).to_not have_content('Bill the Thief')
+    expect(current_path).to eq(admin_enemies_path)
+
+  end
 end
