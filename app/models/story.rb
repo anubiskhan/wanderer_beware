@@ -7,4 +7,8 @@ class Story < ApplicationRecord
 
   has_many :story_enemies
   has_many :enemies, through: :story_enemies
+
+  def roll_die
+    rand(1..6)
+  end
 end

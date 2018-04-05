@@ -12,4 +12,12 @@ describe Story do
     it {is_expected.to have_many(:items).through(:story_items)}
     it {is_expected.to have_many(:enemies).through(:story_enemies)}
   end
+
+  describe 'roll die' do
+    it 'rolls a die' do
+      story = Story.create(title: 'Where?? Wolf!', description: 'Unsurprisingly I am just going to write filler here')
+
+      expect(story.roll_die).to be_within(2.5).of(3.5)
+    end
+  end
 end
