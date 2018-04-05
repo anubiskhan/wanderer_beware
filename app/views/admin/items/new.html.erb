@@ -1,0 +1,17 @@
+<h1>Create an item</h1>
+
+<%= form_for [:admin, @item] do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :item_type %>
+  <%= f.text_field :item_type %>
+
+  <%= f.label :offense %>
+  <%= f.number_field :offense %>
+
+  <%= f.label :defense %>
+  <%= f.number_field :defense %>
+
+  <%= f.submit 'Create Item' %>
+<% end %>

@@ -6,6 +6,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users, only: [:index]
+    resources :items, only: [:index, :new, :create, :destroy]
+    resources :stories, only: [:index, :new, :create, :destroy]
+    resources :enemies, only: [:index, :new, :create, :destroy]
+    resources :storyitems, only: [:index, :new, :create, :destroy]
+    resources :storyenemies, only: [:index, :new, :create, :destroy]
   end
 
   resources :stories, only: [:index, :show]
