@@ -50,6 +50,7 @@ RSpec.configure do |config|
   end
 
   config.after(:suite) do
+    UserItem.destroy_all
     User.destroy_all
     Profession.destroy_all
   end
