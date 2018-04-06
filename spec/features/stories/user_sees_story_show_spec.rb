@@ -50,7 +50,7 @@ describe 'story' do
     user = User.create(username: 'Anubis Khan', email: 'poweroverwhelming@godmode.com', password: 'blacksheepwall', profession_id: Profession.find_by(name: 'Blacksmith').id)
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-    visit '/steal_item'
+    visit story_path(story)
 
     click_on "Steal Item"
 
